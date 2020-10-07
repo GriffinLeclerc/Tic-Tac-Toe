@@ -123,12 +123,17 @@ while not gridIsFull():
     while not isValidLocation(move):
         print("Please enter an unoccupoed desired location as it is in this grid:")
         printGrid(locationGrid)
-        move = input()
+        move = input().strip()
+
+    moveX = int(move[0])
+    moveY = int(move[2])
 
     if player == 1:
-        grid[int(move[0])][int(move[2])] = "X"
+        grid[moveX][moveY] = "X"
     else: 
-        grid[int(move[0])][int(move[2])] = "O"
+        grid[moveX][moveY]  = "O"
+
+    locationGrid[moveX][moveY] = "   "
 
     printGrid(grid)
 
